@@ -30,7 +30,6 @@ class AuthorTests(APITestCase):
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
     
-    
     def test_endpoint_list_authors(self):
         """
         Test authors list endpoint.
@@ -50,7 +49,6 @@ class AuthorTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(Author.objects.count(), expected_total)
     
-
     def test_endpoint_detail_author(self):
         """
         Test author retrieve endpoint.
@@ -61,7 +59,6 @@ class AuthorTests(APITestCase):
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
-
     def test_endpoint_update_author(self):
         """
         Test author update endpoint.
@@ -112,7 +109,6 @@ class BookTests(APITestCase):
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
     
-    
     def test_endpoint_list_books(self):
         """
         Test books list endpoint.
@@ -148,7 +144,6 @@ class BookTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(Book.objects.count(), expected_total)
     
-
     def test_endpoint_detail_book(self):
         """
         Test book retrieve endpoint.
@@ -167,7 +162,6 @@ class BookTests(APITestCase):
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
     
-
     def test_endpoint_update_book(self):
         """
         Test book update endpoint.
