@@ -1,3 +1,23 @@
+"""
+Library models.
+"""
+
+# External imports
 from django.db import models
 
-# Create your models here.
+
+class Author(models.Model):
+
+    name = models.CharField(max_length=50, null=False)
+
+    def __str__(self):
+        return self.name
+
+
+class Book(models.Model):
+
+    name = models.CharField(max_length=50)
+    edition = models.CharField(max_length=50)
+    publication_year = models.IntegerField()
+    authors = models.ManyToManyField(Author, related_name='books')
+
