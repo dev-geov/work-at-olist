@@ -3,7 +3,6 @@ Library views.
 """
 
 # External imports
-
 from django.shortcuts import render
 from django_filters.rest_framework import DjangoFilterBacken
 
@@ -20,6 +19,11 @@ from bookshelf.serializers import AuthorSerializer, BookSerializer
 
 
 class AuthorListCreateAPIView(ListCreateAPIView):
+    """
+    Author List Create Api View.
+
+    Defines a list and create view for author model.
+    """
 
     model = Author
     serializer_class = AuthorSerializer
@@ -29,6 +33,11 @@ class AuthorListCreateAPIView(ListCreateAPIView):
 
 
 class AuthorRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+    """
+    Author Retrieve Update Destroy Api View.
+
+    Defines a retrieve, update, destroy view for author model.
+    """
 
     model = Author
     serializer_class = AuthorSerializer
@@ -37,6 +46,11 @@ class AuthorRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
 
 
 class BookListCreateAPIView(ListCreateAPIView):
+    """
+    Book List Create Api View.
+
+    Defines a list and create view for author book.
+    """
 
     model = Book
     serializer_class = BookSerializer
@@ -46,6 +60,11 @@ class BookListCreateAPIView(ListCreateAPIView):
     search_fields = ['name']
 
 class BookRetrieveUpdateDestroyAPIView(RetrieveUpdateDestroyAPIView):
+    """
+    Book Retrieve Update Destroy Api View.
+
+    Defines a retrieve, update, destroy view for book model.
+    """
 
     model = Book
     serializer_class = BookSerializer
