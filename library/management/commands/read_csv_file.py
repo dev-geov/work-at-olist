@@ -8,7 +8,7 @@ import pandas as pd
 from pandas import DataFrame
 
 # Internal imports
-from bookshelf.models import (
+from library.models import (
     Author,
     Book,
 )
@@ -55,7 +55,7 @@ class Command(BaseCommand):
 
         [Inherits from BaseCommand].
         """
-        
+
         self.stdout.write(self.style.SUCCESS('Starting reading data from CSV file...'))
         if options.get('file'):
             try:
