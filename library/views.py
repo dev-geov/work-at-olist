@@ -4,18 +4,18 @@ Library views.
 
 # External imports
 from django.shortcuts import render
-from django_filters.rest_framework import DjangoFilterBacken
+from django_filters.rest_framework import DjangoFilterBackend
 
 from rest_framework.generics import (
     ListCreateAPIView,
     CreateAPIView,
-    RetrieveUpdateDestroyAPIViewd,
+    RetrieveUpdateDestroyAPIView,
 )
 from rest_framework import filters
 
 # Internal imports
-from bookshelf.models import Author, Book
-from bookshelf.serializers import AuthorSerializer, BookSerializer
+from library.models import Author, Book
+from library.serializers import AuthorSerializer, BookSerializer
 
 
 class AuthorListCreateAPIView(ListCreateAPIView):

@@ -6,7 +6,7 @@ Library serializers classes.
 from rest_framework import serializers
 
 # Internal imports
-from bookshelf.models import *
+from library.models import *
 
 
 class AuthorSerializer(serializers.ModelSerializer):
