@@ -40,9 +40,12 @@ class Command(BaseCommand):
 
         for name in authors_df['name']:
             author = Author(name=name)
-            if author.save():
+            try:
+                author.save()
                 authors_saved += 1
                 self.stdout.write(self.style.SUCCESS(f'Author {name} saved on database.'))
+            except:
+                self.stdout.write(self.style.ERROR(f'Author {name} NOT saved on database.'))
         
         return authors_saved
 
