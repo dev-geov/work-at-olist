@@ -8,10 +8,7 @@ import pandas as pd
 from pandas import DataFrame
 
 # Internal imports
-from library.models import (
-    Author,
-    Book,
-)
+from library.models import Author
 
 
 class Command(BaseCommand):
@@ -19,7 +16,7 @@ class Command(BaseCommand):
     Class Command.
     """
 
-    help = 'Closes the specified poll for voting'
+    help = 'Read CSV file and save data into database.'
 
     def add_arguments(self, parser):
         """
@@ -42,10 +39,10 @@ class Command(BaseCommand):
         authors_saved = 0
 
         for name in authors_df['name']:
-            book = Author(name=name)
-            book.save()
-            authors_saved += 1
-            self.stdout.write(self.style.SUCCESS(f'Author {name} saved on database.'))
+            author = Author(name=name)
+            if author.save():
+                authors_saved += 1
+                self.stdout.write(self.style.SUCCESS(f'Author {name} saved on database.'))
         
         return authors_saved
 
